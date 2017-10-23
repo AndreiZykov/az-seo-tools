@@ -4,7 +4,7 @@ Application helps managing main seo elements of web page, keeps list of urls you
 
 ## Information
 
-Small Android project with.
+Small android project
  - MVP design pattern
  - ButterKnife, RecycleView, Cards, Custome Dialogs 
  - Parse HTML pages
