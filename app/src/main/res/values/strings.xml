@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SEO</string>
+    <string name="add_link_search_fragment">Add Link</string>
+    <string name="enter_url_search_fragment">enter URL</string>
+    <string name="tag">Tag:</string>
+    <string name="title">title</string>
+    <string name="head"><![CDATA[head >]]></string>
+    <string name="processing_seo">Processing SEO</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="do_you_want_to_remove_url">Do you want to remove URL?</string>
+    <string name="remove">Remove</string>
+    <string name="remove_url">REMOVE URL</string>
+    <string name="add_url">ADD URL</string>
+    <string name="body"><![CDATA[body >]]></string>
+    <string name="h_tags">h tags</string>
+    <string name="show_more">show more</string>
+    <string name="show_more_info">Show More</string>
+    <string name="hide">hide</string>
+    <string name="edit">Edit</string>
+    <string name="error">Error</string>
+    <string name="content">content</string>
+    <string name="content_most_used_words"><![CDATA[content > most used words]]></string>
+</resources>
