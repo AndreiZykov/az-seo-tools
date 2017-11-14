@@ -14,7 +14,11 @@ public class SearchFragmentPresenter implements SearchFragment.ISearchFragmentPr
 
     private ISearchFragment fragment;
 
-    public SearchFragmentPresenter(SearchFragment searchFragment) {
+    public SearchFragmentPresenter() {
+    }
+
+    @Override
+    public void bindView(SearchFragment searchFragment) {
         this.fragment = searchFragment;
     }
 

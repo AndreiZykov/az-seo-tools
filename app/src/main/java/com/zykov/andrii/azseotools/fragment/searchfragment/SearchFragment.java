@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.zykov.andrii.azseotools.R;
+import com.zykov.andrii.azseotools.SeoToolsApp;
 import com.zykov.andrii.azseotools.dialogfragments.RemoveUrlDialogFragment;
 import com.zykov.andrii.azseotools.dialogfragments.UrlDialogFragment;
 import com.zykov.andrii.azseotools.fragment.seofragment.SeoFragment;
@@ -22,6 +23,8 @@ import com.zykov.andrii.azseotools.utils.database.DbProvider;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,11 +61,13 @@ public class SearchFragment extends Fragment implements ISearchFragment {
 
     public interface ISearchFragmentPresenter {
         void addUrl(String url);
-        void removeURL(String url);
-        void showURLSEOResults(String urlByPosition);
-    }
 
-    private ISearchFragmentPresenter presenter;
+        void removeURL(String url);
+
+        void showURLSEOResults(String urlByPosition);
+
+        void bindView(SearchFragment searchFragment);
+    }
 
     @BindView(R.id.search_fragment_fab)
     FloatingActionButton fab;
@@ -70,8 +75,15 @@ public class SearchFragment extends Fragment implements ISearchFragment {
     @BindView(R.id.url_list_search_fragment)
     ListView urlListView;
 
+    @Inject
+    ISearchFragmentPresenter presenter;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.search_fragment, container, false);
+
+        ((SeoToolsApp) getActivity().getApplication()).getAppComponent().inject(this);
+        presenter.bindView(this);
+
         ButterKnife.bind(this, rootView);
         urlData = new ArrayList<String>();
         updateData();
@@ -81,7 +93,6 @@ public class SearchFragment extends Fragment implements ISearchFragment {
         urlListView.setOnItemClickListener(onItemClickListener);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        presenter = new SearchFragmentPresenter(this);
         return rootView;
     }
 

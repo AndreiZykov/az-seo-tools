@@ -80,7 +80,7 @@ public class UrlDialogFragment extends DialogFragment {
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         params.gravity = Gravity.CENTER;
 
-        return dialog; //super.onCreateDialog(savedInstanceState);
+        return dialog;
     }
 
     public interface UrlDialogFragmentListener {
